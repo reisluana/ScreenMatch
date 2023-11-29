@@ -1,7 +1,10 @@
+import br.com.alura.screenmatch.modelos.Filme;
+//o import é a forma que uma classe se referencia a outra quando estão em pacotes diferentes
+
 public class Principal {
     public static void main(String[] args) {
         //o tipo abaixo é chamado de tipo referência
-        Filme meuFilme = new Filme();//essa parte "new Filme" cria um objeto, um espaço na memória. o nome disso é instanciar
+        Filme meuFilme = new Filme();//essa parte "new br.com.alura.screenmatch.modelos.Filme" cria um objeto, um espaço na memória. o nome disso é instanciar
         //enquanto que a parte da esquerda vai referenciar, ou seja, está "guardando" onde o objeto está
 
         /*um objeto, é uma instância de uma classe, sendo por meio dele que conseguimos representar informações
@@ -13,20 +16,19 @@ public class Principal {
         já que são da mesma classe, mas cada um pode possuir informações distintas. Exemplo: meuFilme2 será
         outro filme, por exemplo, Interstellar
 
-        Filme meuFilme2 = new Filme();
+        br.com.alura.screenmatch.modelos.Filme meuFilme2 = new br.com.alura.screenmatch.modelos.Filme();
 
         meuFilme2.nome = "Interstellar";*/
 
-        meuFilme.nome = "O Poderoso Chefão";
-        meuFilme.anoDeLancamento = 1978;
-        meuFilme.duracaoEmMinutos = 180;
+        meuFilme.setNome("O Poderoso Chefão");
+        meuFilme.setAnoDeLancamento(1978);
+        meuFilme.setDuracaoEmMinutos(180);
 
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia(8);
         meuFilme.avalia(5);
         meuFilme.avalia(10);
-            System.out.println(meuFilme.somaDasAvaliacoes);
-            System.out.println(meuFilme.totalDeAvaliacoes);
+            System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
             System.out.println(meuFilme.pegaMedia());
     }
 }
