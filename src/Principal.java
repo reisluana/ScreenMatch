@@ -1,10 +1,12 @@
+import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.modelos.Filme;
+import br.com.alura.screenmatch.modelos.Serie;
 //o import é a forma que uma classe se referencia a outra quando estão em pacotes diferentes
 
 public class Principal {
     public static void main(String[] args) {
         //o tipo abaixo é chamado de tipo referência
-        Filme meuFilme = new Filme();//essa parte "new br.com.alura.screenmatch.modelos.Filme" cria um objeto, um espaço na memória. o nome disso é instanciar
+        Filme meuFilme = new Filme();//essa parte "new Filme" cria um objeto, um espaço na memória. o nome disso é instanciar
         //enquanto que a parte da esquerda vai referenciar, ou seja, está "guardando" onde o objeto está
 
         /*um objeto, é uma instância de uma classe, sendo por meio dele que conseguimos representar informações
@@ -16,9 +18,9 @@ public class Principal {
         já que são da mesma classe, mas cada um pode possuir informações distintas. Exemplo: meuFilme2 será
         outro filme, por exemplo, Interstellar
 
-        br.com.alura.screenmatch.modelos.Filme meuFilme2 = new br.com.alura.screenmatch.modelos.Filme();
+        Filme meuFilme2 = new Filme();
 
-        meuFilme2.nome = "Interstellar";*/
+        meuFilme2.setNome("Interstellar");*/
 
         meuFilme.setNome("O Poderoso Chefão");
         meuFilme.setAnoDeLancamento(1978);
@@ -30,5 +32,28 @@ public class Principal {
         meuFilme.avalia(10);
             System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
             System.out.println(meuFilme.pegaMedia());
+
+
+        Filme meuFilme2 = new Filme();
+        meuFilme2.setNome("Interstellar");
+        meuFilme2.setAnoDeLancamento(2014);
+        meuFilme2.setDuracaoEmMinutos(200);
+
+
+        Serie minhaSerie = new Serie();
+        minhaSerie.setNome("Lost");
+        minhaSerie.setAnoDeLancamento(2000);
+        minhaSerie.exibeFichaTecnica();
+        minhaSerie.setTemporadas(10);
+        minhaSerie.setEpisodiosPorTemporada(10);
+        minhaSerie.setMinutosPorEpisodio(50);
+         System.out.println("Duração para maratonar: " + minhaSerie.getDuracaoEmMinutos());
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(meuFilme);
+        calculadora.inclui(meuFilme2);
+        calculadora.inclui(minhaSerie);
+         System.out.println(calculadora.getTempoTotal());
     }
+
 }
