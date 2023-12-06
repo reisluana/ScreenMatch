@@ -86,7 +86,8 @@ public class Principal {
         listaDeFilmes.add(meuFilme3);
             System.out.println("Tamanho da lista: " + listaDeFilmes.size());
             System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
-
+            System.out.println(listaDeFilmes); //método toString implementado na classe Filme:
+            System.out.println("toString do filme " + listaDeFilmes.get(0).toString());
 
         //Em Java, arrays são estruturas de dados que permitem armazenar uma coleção de elementos do mesmo tipo.
         //Para declarar um array em Java, é preciso definir seu tipo e tamanho. Por exemplo, para criar um array
@@ -117,6 +118,22 @@ public class Principal {
         //Justamente por conta desses problemas e dificuldades é que não devemos utilizar arrays para representar
         //uma coleção de elementos, mas sim alguma classe do Java, como a ArrayList, que encapsula e abstrai um array,
         //facilitando a sua utilização via métodos e deixando o código do projeto mais simples de entender e evoluir.
+
+
+        //DESAFIO: carrinho de compras que permite até 10 itens por carrinho:
+        //public class Carrinho {
+        //
+        //  ArrayList<Produto> produtos = new ArrayList<>();
+        //
+        //  public void adicionaProduto(Produto produto) {
+        //  if (produtos.size() < 10) {
+        //    produtos.add(produto);
+        //  } else {
+        //    System.out.prinln("Carrinho cheio!");
+        //  }
+        // }
+        //
+        //}
     }
 
 }
