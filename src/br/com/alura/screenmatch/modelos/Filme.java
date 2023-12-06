@@ -22,8 +22,8 @@ public class Filme extends Titulo implements Classificavel {
     }
 
     @Override//sobrescrever o toString da classe mãe object (essa classe existe em todos os programas, é uma classe
-    //implícita no java), porque nesse caso queremos que o programa retorne a lista de filmes com os nomes, e não o endereço
-    //deles (br.com.alura@ etc)
+    //implícita no java), porque nesse caso queremos que o programa retorne a lista de filmes em texto, e não em objeto
+    // (br.com.alura@ etc)
     public String toString() {
         return "Filme: " + this.getNome() + " (" + this.getAnoDeLancamento() + ")";
     }
