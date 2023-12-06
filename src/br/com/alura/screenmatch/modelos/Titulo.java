@@ -18,6 +18,10 @@ public class Titulo {
         return totalDeAvaliacoes;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
     public void setNome(String nome) {
         this.nome = nome; /*this: serve para referenciar corretamente e eliminar a confusão entre atributos e parâmetros.
         o NOME em questão é o atributo da classe/objeto atual, não o parâmetro,

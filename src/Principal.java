@@ -3,6 +3,8 @@ import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
+
+import java.util.ArrayList;
 //o import é a forma que uma classe se referencia a outra quando estão em pacotes diferentes
 
 public class Principal {
@@ -49,13 +51,13 @@ public class Principal {
         minhaSerie.setTemporadas(10);
         minhaSerie.setEpisodiosPorTemporada(10);
         minhaSerie.setMinutosPorEpisodio(50);
-         System.out.println("Duração para maratonar: " + minhaSerie.getDuracaoEmMinutos());
+            System.out.println("Duração para maratonar: " + minhaSerie.getDuracaoEmMinutos());
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         calculadora.inclui(meuFilme);
         calculadora.inclui(meuFilme2);
         calculadora.inclui(minhaSerie);
-         System.out.println(calculadora.getTempoTotal());
+            System.out.println(calculadora.getTempoTotal());
 
         FiltroRecomendacao filtro = new FiltroRecomendacao();
         filtro.filtra(meuFilme);
@@ -65,6 +67,56 @@ public class Principal {
         episodio.setSerie(minhaSerie);
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
+
+        Filme meuFilme3 = new Filme();
+        meuFilme3.setDuracaoEmMinutos(200);
+        meuFilme3.setNome("Dogville");
+        meuFilme3.setAnoDeLancamento(2003);
+        meuFilme3.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();//também seria possível usar var listaDeFilmes = new ArrayList
+        //limitações:
+        //ao usar var, o tipo da variável será inferido automaticamente pelo compilador com base no valor atribuído.
+        //Não é possível usar var em variáveis sem valor inicial. É necessário atribuir um valor à variável na mesma
+        // linha em que ela é declarada.
+        //O tipo da variável deve ser inferido automaticamente pelo compilador. Isso significa que não é possível
+        // utilizar var em variáveis cujo tipo não possa ser inferido automaticamente.
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(meuFilme2);
+        listaDeFilmes.add(meuFilme3);
+            System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+            System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+
+
+        //Em Java, arrays são estruturas de dados que permitem armazenar uma coleção de elementos do mesmo tipo.
+        //Para declarar um array em Java, é preciso definir seu tipo e tamanho. Por exemplo, para criar um array
+        // de inteiros com tamanho 5, podemos escrever o seguinte código:
+        //int[] numeros = new int[5];
+        //Aqui, estamos declarando um array chamado "numeros" do tipo "int" e com tamanho 5.
+        //Após declarar um array, podemos inicializá-lo com valores. Por exemplo, podemos preencher o array "numeros"
+        // com os números de 1 a 5 da seguinte forma:
+        //for (int i = 0; i < numeros.length; i++) {
+        //    numeros[i] = i + 1;
+        //Aqui, estamos percorrendo o array "numeros" utilizando um loop for e preenchendo cada posição com seu
+        // respectivo índice mais 1.
+
+        //Também é possível criar arrays de objetos e não apenas de tipos primitivos. Por exemplo:
+        //Filme[] filmes = new Filme[2];
+        //Filme filme1 = new Filme("Avatar", 2009);
+        //Filme filme2 = new Filme("Dogville", 2003);
+        //
+        //filmes[0] = filme1;
+        //filmes[1] = filme2;
+
+        //limitações do array:
+        //Tamanho fixo: o tamanho de um array é fixo e não pode ser alterado após a sua criação. Isso pode ser
+        //problemático em situações em que o tamanho dos dados a serem armazenados é desconhecido ou variável.
+        //Ausência de métodos: arrays não possuem métodos que permitam a inserção, remoção ou pesquisa de elementos
+        //de forma eficiente. Isso pode levar a soluções de código complicadas e ineficientes para tarefas simples.
+
+        //Justamente por conta desses problemas e dificuldades é que não devemos utilizar arrays para representar
+        //uma coleção de elementos, mas sim alguma classe do Java, como a ArrayList, que encapsula e abstrai um array,
+        //facilitando a sua utilização via métodos e deixando o código do projeto mais simples de entender e evoluir.
     }
 
 }
