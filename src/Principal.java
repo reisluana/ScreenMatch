@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public class Principal {
     public static void main(String[] args) {
         //o tipo abaixo é chamado de tipo referência
-        Filme meuFilme = new Filme();//essa parte "new Filme" cria um objeto, um espaço na memória. o nome disso é instanciar
+        Filme meuFilme = new Filme("O Poderoso Chefão", 1978);//essa parte "new Filme" cria um
+        // objeto, um espaço na memória. o nome disso é instanciar
         //enquanto que a parte da esquerda vai referenciar, ou seja, está "guardando" onde o objeto está
 
         /*um objeto, é uma instância de uma classe, sendo por meio dele que conseguimos representar informações
@@ -26,8 +27,8 @@ public class Principal {
 
         meuFilme2.setNome("Interstellar");*/
 
-        meuFilme.setNome("O Poderoso Chefão");
-        meuFilme.setAnoDeLancamento(1978);
+        //meuFilme.setNome("O Poderoso Chefão"); - essa linha não é mais necessária, pois usamos o construtor
+        //meuFilme.setAnoDeLancamento(1978); - essa linha não é mais necessária, pois usamos o construtor
         meuFilme.setDuracaoEmMinutos(180);
 
         meuFilme.exibeFichaTecnica();
@@ -38,15 +39,15 @@ public class Principal {
             System.out.println(meuFilme.pegaMedia());
 
 
-        Filme meuFilme2 = new Filme();
-        meuFilme2.setNome("Interstellar");
-        meuFilme2.setAnoDeLancamento(2014);
+        Filme meuFilme2 = new Filme("Interstellar", 2014);
+        //meuFilme2.setNome("Interstellar"); - essa linha não é mais necessária, pois usamos o construtor
+        //meuFilme2.setAnoDeLancamento(2014); - essa linha não é mais necessária, pois usamos o construtor
         meuFilme2.setDuracaoEmMinutos(200);
 
 
-        Serie minhaSerie = new Serie();
-        minhaSerie.setNome("Lost");
-        minhaSerie.setAnoDeLancamento(2000);
+        Serie minhaSerie = new Serie("Lost", 2000);
+        //minhaSerie.setNome("Lost"); - essa linha não é mais necessária, pois usamos o construtor
+        //minhaSerie.setAnoDeLancamento(2000); - essa linha não é mais necessária, pois usamos o construtor
         minhaSerie.exibeFichaTecnica();
         minhaSerie.setTemporadas(10);
         minhaSerie.setEpisodiosPorTemporada(10);
@@ -68,10 +69,10 @@ public class Principal {
         episodio.setTotalVisualizacoes(300);
         filtro.filtra(episodio);
 
-        Filme meuFilme3 = new Filme();
+        Filme meuFilme3 = new Filme("Dogville", 2003);
         meuFilme3.setDuracaoEmMinutos(200);
-        meuFilme3.setNome("Dogville");
-        meuFilme3.setAnoDeLancamento(2003);
+        //meuFilme3.setNome("Dogville"); - essa linha não é mais necessária, pois usamos o construtor
+        //meuFilme3.setAnoDeLancamento(2003); - essa linha não é mais necessária, pois usamos o construtor
         meuFilme3.avalia(10);
 
         ArrayList<Filme> listaDeFilmes = new ArrayList<>();//também seria possível usar var listaDeFilmes = new ArrayList
@@ -134,6 +135,10 @@ public class Principal {
         // }
         //
         //}
+
+        //construtor: método que tem como função a criação de um objeto em memória (construtor está na classe Filme)
+        var filmeDaLuana = new Filme("Jogos Vorazes", 2012);
+        //filmeDaLuana.setNome("Jogos Vorazes"); - essa linha não é mais necessária, pois usamos o construtor
     }
 
 }

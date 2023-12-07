@@ -6,6 +6,19 @@ public class Serie extends Titulo {
     private int episodiosPorTemporada;
     private int minutosPorEpisodio;
 
+
+    //construtores:
+    //se a classe mãe tem um construtor, então obrigatoriamente a classe filha Serie precisa ter também
+    //NÃO HÁ HERANÇA DE CONSTRUTORES
+    //um construtor pode testar, validar, fazer conexão com o banco etc
+    //o construtor é mais um recurso para encapsular objetos
+
+    public Serie(String nome, int anoDeLancamento) {
+        super(nome, anoDeLancamento);//a palavra reservada super chama o construtor da classe mãe
+    }
+
+
+
     public int getTemporadas() {
         return temporadas;
     }
