@@ -12,8 +12,6 @@ public class Titulo {
     //não deixa ler e nem alterar o valor de um atributo, devemos fazer isso através de um método
 
     //os construtores geralmente ficam logo depois dos atributos:
-
-
     public Titulo(String nome, int anoDeLancamento) {
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;

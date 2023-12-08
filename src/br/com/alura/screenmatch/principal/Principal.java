@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
@@ -136,7 +138,8 @@ public class Principal {
         //
         //}
 
-        //construtor: método que tem como função a criação de um objeto em memória (construtor está na classe Filme)
+        //construtor: método que tem como função a criação de um objeto em memória (construtor está na classe Filme,
+        // que, por sua vez, chama o construtor da classe mãe - palavra reservada super)
         var filmeDaLuana = new Filme("Jogos Vorazes", 2012);
         //filmeDaLuana.setNome("Jogos Vorazes"); - essa linha não é mais necessária, pois usamos o construtor
     }
