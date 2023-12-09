@@ -4,7 +4,7 @@ import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class PrincipalComListas {
     public static void main(String[] args) {
@@ -20,7 +20,11 @@ public class PrincipalComListas {
         filmeDaLuana.avalia(8);
         Serie minhaSerie = new Serie("Lost", 2000);
 
-        ArrayList<Titulo> lista = new ArrayList<>();
+        List<Titulo> lista = new LinkedList<>(); //interface List - sendo tipo List, que é uma interface,
+        //qualquer implementação dela que seja instanciada terá os mesmos métodos padronizados,
+        //então conseguimos usar LinkedList ao invés de ArrayList, por exemplo.
+        //as classes mais comuns para representar lista são: ArrayList, LinkedList, Vector e Stack. (pesquisar mais sobre
+        //estrutura de dados para saber implementar a melhor opção para cada caso).
         lista.add(meuFilme);
         lista.add(meuFilme2);
         lista.add(meuFilme3);
@@ -60,5 +64,43 @@ public class PrincipalComListas {
 
         No código anterior, o símbolo :: é a sintaxe do Method Reference
         */
+
+        List<String> buscaPorArtista = new ArrayList<>(); //interface List
+        buscaPorArtista.add("Adam Sandler");
+        buscaPorArtista.add("Jennifer Lawrence");
+        buscaPorArtista.add("Angelina Jolie");
+        buscaPorArtista.add("Robert Pattinson");
+        buscaPorArtista.add("Anne Hathaway");
+        System.out.println(buscaPorArtista);
+
+        Collections.sort(buscaPorArtista);
+        System.out.println("Depois da ordenação por ordem alfabética:");
+        System.out.println(buscaPorArtista);
+
+
+        System.out.println("Lista de títulos ordenados por ordem alfabética:");
+        Collections.sort(lista);//os tipos primitivos (como String) são óbvios para fazer comparações, o que não
+        //acontece no tipo Título, por isso Collections.sort(lista) apresentaria um erro de comparação. sendo assim,
+        //precisamos aplicar o implements Comparable na classe mãe Título e fazer o Override do método para definir a
+        //comparação entre nomes do Título
+        System.out.println(lista);
+
+        lista.sort(Comparator.comparing(Titulo::getAnoDeLancamento)); //defino como quero comparar/o que estou comparando
+        //(nesse caso, comparando o ano de lançamento dos títulos. o ano de lançamento é o critério de comparação)
+        //comparador vs comparável (comparator vs comparable)
+        System.out.println("Ordenando por ano de lançamento:");
+        System.out.println(lista);
+
     }
 }
+/*
+* Map e HashMap são ferramentas essenciais para associação de chaves e valores.
+*
+* O Map é uma interface que permite que os desenvolvedores associem chaves a valores.
+* É uma estrutura de dados útil para muitas aplicações Java, especialmente aquelas que envolvem a
+* manipulação de grandes quantidades de dados, portanto, é comum usá-lo para realizar buscas, atualização e
+* recuperação de elementos por chaves. O Map é implementado por diversas classes, sendo a mais comum delas o HashMap.
+*
+* O HashMap é uma classe que implementa a interface Map usando uma tabela hash para armazenar os pares chave-valor.
+* (pesquisar mais sobre map e hashmap para entender melhor a implementação)
+* */

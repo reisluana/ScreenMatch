@@ -1,6 +1,6 @@
 package br.com.alura.screenmatch.modelos;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo>{
     //esses são os atributos, ou seja, as características de um objeto:
     //os atributos precisam ser sempre private
     private String nome;
@@ -90,6 +90,12 @@ além do método fazAniversario()
     public int getDuracaoEmMinutos() {
         return duracaoEmMinutos;
     }
+
+    @Override //Comparable usado na classe PrincipalComListas para utilizar Collections.sort
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());//defino que o nome do Título será comparado com o nome
+        //de outro Título
+    }
 }
 
 /* PACKAGES: organiza o código pela funcionalidade de suas classes
@@ -100,5 +106,7 @@ além do método fazAniversario()
 se o nome de domínio da empresa fosse "minhaempresa.com.br" e o projeto Java fosse chamado de "meuprojeto",
 o nome do pacote de domínio reverso seria br.com.minhaempresa.meuprojeto, sendo que dentro desse pacote principal
 podemos ter diversos subpacotes, para melhor organização do código do projeto.*/
+
+
 
 
