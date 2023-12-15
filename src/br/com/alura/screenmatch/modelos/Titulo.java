@@ -1,9 +1,13 @@
 package br.com.alura.screenmatch.modelos;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Titulo implements Comparable<Titulo>{
     //esses são os atributos, ou seja, as características de um objeto:
     //os atributos precisam ser sempre private
+    @SerializedName("Title") //anotação para indicar a alteração de nomes de forma que fique compatível com o json
     private String nome;
+    @SerializedName("Year")
     private int anoDeLancamento;
     private int duracaoEmMinutos;
     private boolean incluidoNoPlano;
@@ -15,6 +19,13 @@ public class Titulo implements Comparable<Titulo>{
     public Titulo(String nome, int anoDeLancamento) {
         this.nome = nome;
         this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public Titulo(TituloOmdb meuTituloOmdb) {
+        this.nome = meuTituloOmdb.title();
+        this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());//para converter o year para int
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0,2));//para converter o runtime
+        //para int e excluir o "min"
     }
 
     //GET: obter valor
@@ -95,6 +106,12 @@ além do método fazAniversario()
     public int compareTo(Titulo outroTitulo) {
         return this.getNome().compareTo(outroTitulo.getNome());//defino que o nome do Título será comparado com o nome
         //de outro Título
+    }
+
+    @Override //anotação para sobrescrever o toString da classe mãe implícita Object, nesse caso precisamos sobrescrever
+    //para que o retorno do json na classe PrincipalComBusca venha concatenado e em forma de texto.
+    public String toString() {
+        return "nome: " + nome + "; ano de lançamento: " + anoDeLancamento + "; duração em minutos: " + duracaoEmMinutos;
     }
 }
 
