@@ -1,13 +1,15 @@
 package br.com.alura.screenmatch.modelos;
 
+import br.com.alura.screenmatch.excecao.ErroDeConversaoDeAnoException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo>{
     //esses são os atributos, ou seja, as características de um objeto:
     //os atributos precisam ser sempre private
-    @SerializedName("Title") //anotação para indicar a alteração de nomes de forma que fique compatível com o json
+
+    //@SerializedName("Title") //anotação para indicar a alteração de nomes de forma que fique compatível com o json
     private String nome;
-    @SerializedName("Year")
+    //@SerializedName("Year") - o serialized não é mais necessário pq agora usei o record
     private int anoDeLancamento;
     private int duracaoEmMinutos;
     private boolean incluidoNoPlano;
@@ -23,8 +25,13 @@ public class Titulo implements Comparable<Titulo>{
 
     public Titulo(TituloOmdb meuTituloOmdb) {
         this.nome = meuTituloOmdb.title();
+
+        if(meuTituloOmdb.year().length() > 4){//se o ano tiver mais de 4 caracteres, lançar exception
+            throw new ErroDeConversaoDeAnoException("Não é possível converter o ano, pois tem mais de 4 caracteres");
+            //lança o erro e cria uma exceção que criamos com a classe ErroDeConversaoDeAnoException
+        }
         this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());//para converter o year para int
-        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0,2));//para converter o runtime
+        this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0,3));//para converter o runtime
         //para int e excluir o "min"
     }
 
