@@ -118,7 +118,7 @@ além do método fazAniversario()
     @Override //anotação para sobrescrever o toString da classe mãe implícita Object, nesse caso precisamos sobrescrever
     //para que o retorno do json na classe PrincipalComBusca venha concatenado e em forma de texto.
     public String toString() {
-        return "nome: " + nome + "; ano de lançamento: " + anoDeLancamento + "; duração em minutos: " + duracaoEmMinutos;
+        return "(nome: " + nome + "; ano de lançamento: " + anoDeLancamento + "; duração em minutos: " + duracaoEmMinutos + ")";
     }
 }
 
